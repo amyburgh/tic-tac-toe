@@ -1,0 +1,230 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #28205a;
+  --secondary: #f92464;
+  --border: solid 2px #28205a76;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  color: var(--primary);
+}
+
+.github-corner .corner-bg:hover {
+  fill: var(--secondary);
+}
+
+.play {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  background-color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.play::before {
+  content: '\ef4a';
+  position: absolute;
+  color: var(--secondary);
+  font-family: 'Material symbols Rounded';
+  font-size: 48px;
+  filter: blur(1px);
+  animation: spino 7s infinite alternate ease-in-out;
+}
+
+.play::after {
+  content: '\e5cd';
+  position: absolute;
+  font-family: 'Material symbols Rounded';
+  font-size: 48px;
+  filter: blur(1px);
+  animation: spinx 7s infinite alternate ease-in-out;
+}
+
+@keyframes spinx {
+  from {
+    transform: rotate(0deg) translateY(200px) scale(1.5);
+  }
+  to {
+    transform: rotate(360deg) translateY(180px) scale(1);
+  }
+}
+
+@keyframes spino {
+  from {
+    transform: rotate(0deg) translateY(-200px) scale(1.5);
+  }
+  to {
+    transform: rotate(360deg) translateY(-180px) scale(1);
+  }
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: medium;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: normal;
+  margin-top: 0;
+}
+
+.color-secondary {
+  color: var(--secondary);
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.result-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  top: 35vh;
+  align-items: center;
+
+  cursor: pointer;
+  display: none;
+}
+
+.result-info::before {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  width: 320px;
+  height: 120px;
+  background-color: white;
+  filter: blur(2rem);
+}
+
+.result {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.replay {
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+.board {
+  padding: 2rem;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(3, auto);
+}
+
+.board .square {
+  /* border: solid 2px var(--primary); */
+  /* opacity: 0.5; */
+  height: 200px;
+  width: 200px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  border: var(--border);
+}
+
+/* HERE */
+.square.x::after,
+.board.x .square:not(.x):not(.o):hover::after {
+  content: '\e5cd';
+  position: absolute;
+  font-family: 'Material symbols Rounded';
+  font-size: 200px;
+  color: var(--primary);
+}
+
+.board.x .square:not(.x):not(.o):hover::after,
+.board.o .square:not(.x):not(.o):hover::after {
+  opacity: 0.5;
+  filter: blur(0.1rem);
+}
+
+.square.o::after,
+.board.o .square:not(.x):not(.o):hover::after {
+  content: '\ef4a';
+  position: absolute;
+  font-family: 'Material symbols Rounded';
+  font-size: 150px;
+  color: var(--secondary);
+}
+
+.square.x,
+.square.o {
+  cursor: not-allowed;
+}
+
+.square:hover:not(),
+.square:hover:not() {
+  background-color: #f92464;
+  opacity: 0.2;
+}
+
+.material-symbols-rounded {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+}
+
+/* top bottom left right */
+.square:nth-child(3n + 1) {
+  border-left: none;
+}
+
+.square:nth-child(3n + 3) {
+  border-right: none;
+}
+
+.square:first-child,
+.square:nth-child(2),
+.square:nth-child(3) {
+  border-top: none;
+}
+
+.square:nth-child(7),
+.square:nth-child(8),
+.square:last-child {
+  border-bottom: none;
+}
+
+.blur {
+  filter: blur(0.3rem);
+}
+
+footer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  width: 100%;
+  height: 3.5rem;
+}
