@@ -5,6 +5,7 @@ The main goal is to have as little global code as possible, tucking everything a
 
 ---
 
-[![Site preview](screenCapture.jpg)](https://amyburgh.github.io/tic-tac-toe/)
-
-<p style="text-align:center">☝️ *Click to preview* ☝️</p>
+|                                                                            |                                                                            |
+| :------------------------------------------------------------------------: | :------------------------------------------------------------------------: |
+| [![preview](screenCapture1.jpeg)](https://amyburgh.github.io/tic-tac-toe/) | [![preview](screenCapture2.jpeg)](https://amyburgh.github.io/tic-tac-toe/) |
+|                             _Click to preview_                             |                             _Click to preview_                             |
