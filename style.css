@@ -5,7 +5,7 @@
 :root {
   --primary: #28205a;
   --secondary: #f92464;
-  --border: solid 2px #28205a76;
+  --border: #28205a76;
 }
 
 body {
@@ -19,7 +19,7 @@ body {
   fill: var(--secondary);
 }
 
-.play {
+.start {
   position: fixed;
   top: 0;
   right: 0;
@@ -36,7 +36,7 @@ body {
   cursor: pointer;
 }
 
-.play::before {
+.start::before {
   content: '\ef4a';
   position: absolute;
   color: var(--secondary);
@@ -46,7 +46,7 @@ body {
   animation: spino 7s infinite alternate ease-in-out;
 }
 
-.play::after {
+.start::after {
   content: '\e5cd';
   position: absolute;
   font-family: 'Material symbols Rounded';
@@ -104,7 +104,6 @@ header {
   width: 100vw;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   top: 35vh;
   align-items: center;
 
@@ -133,16 +132,15 @@ header {
 }
 
 .board {
-  padding: 2rem;
+  margin: 2rem auto;
+  width: fit-content;
   display: grid;
-  justify-content: center;
-  align-content: center;
   grid-template-columns: repeat(3, auto);
+  gap: 4px;
+  background-color: var(--border);
 }
 
 .board .square {
-  /* border: solid 2px var(--primary); */
-  /* opacity: 0.5; */
   height: 200px;
   width: 200px;
 
@@ -150,11 +148,9 @@ header {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-
-  border: var(--border);
+  background-color: white;
 }
 
-/* HERE */
 .square.x::after,
 .board.x .square:not(.x):not(.o):hover::after {
   content: '\e5cd';
@@ -192,27 +188,6 @@ header {
 
 .material-symbols-rounded {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
-}
-
-/* top bottom left right */
-.square:nth-child(3n + 1) {
-  border-left: none;
-}
-
-.square:nth-child(3n + 3) {
-  border-right: none;
-}
-
-.square:first-child,
-.square:nth-child(2),
-.square:nth-child(3) {
-  border-top: none;
-}
-
-.square:nth-child(7),
-.square:nth-child(8),
-.square:last-child {
-  border-bottom: none;
 }
 
 .blur {
