@@ -58,7 +58,7 @@ function playGame() {
 
     const gameResult = checkResult(token);
     if (gameResult !== '') {
-      result.showResult(gameResult);
+      result.showResult(gameResult, token === player2.token);
       display.removeClickToSquares(placeToken);
       display.tokenHoverEffect({ token: player1.token, turn: false });
       display.tokenHoverEffect({ token: player2.token, turn: false });
@@ -150,7 +150,8 @@ function displayResult() {
   const resultScreen = document.querySelector('#result-info');
   const resultGame = document.querySelector('#result');
 
-  function showResult(resultValue) {
+  function showResult(resultValue, addSecondaryColor) {
+    resultGame.classList.toggle('color-secondary', addSecondaryColor);
     resultGame.textContent = resultValue;
     resultScreen.style.display = 'flex';
   }
